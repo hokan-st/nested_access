@@ -1,4 +1,4 @@
--module(proplists_helper_test).
+-module(na_proplists_helper_test).
 
 -include_lib("eunit/include/eunit.hrl").
 
