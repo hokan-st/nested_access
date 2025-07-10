@@ -1,0 +1,16 @@
+# git ignore patterns requiered by elvis.config
+# Note: `/` at end indicates that pattern is a folder
+# Note: `/` at the begining or middle indicate a path relative to the .gitignore file
+
+.rebar3/
+_build/
+_checkouts/
+doc/
+/erl_crash.dump
+/rebar3.crashdump
+test/logs/
+
+# ignore OS specific meta data files
+
+**/.DS_Store
+

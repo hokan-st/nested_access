@@ -1,0 +1,47 @@
+{application, nested_access,
+ [
+  {description, """
+This library contains Erlang functions to access and update deeply nested data structures.
+"""},
+
+  %% It appears that each update (e.g. relevant git tag) needs to be published explicitly, see:
+  %% https://hex.pm/docs/rebar3-publish
+  %% https://hexdocs.pm/rebar3_hex/readme.html
+  %% Note: keep git tags and vsn string the same to avoid confusion
+  %%       the same would apply when (rebar3) releases are used
+  %% {vsn, git}, XXX how does this work ???
+  {vsn, "0.1.0"},
+
+  %% All names of registered processes in the application.
+  %% systools uses this list to detect name clashes between applications. Defaults to [].
+  {registered, []},
+
+  %% application that must already be running for this "app" to work.
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+
+  %% Application env settings
+  %% Projects with multiple applications usually store these settings in sys.config
+  %% Note: an application entry in sys.config overrides the matching .app.src entry
+  {env, []},
+
+  %% modules introduced by this application - rebar3 sets these when generating that .app file
+  {modules, []},
+
+  %% ---------------------------------------------------------------------------
+  %% hex.pm settings
+  %% ---------------------------------------------------------------------------
+
+  {licenses, ["MIT"]},
+
+  %% List of links. These show up on the individual package pages at hex.pm.
+  %% Most repos only have a {"Github", "https://github.com/..."} entry, pointing to their repo.
+  %% Some have additional links to project websites or custom documentation.
+  {links, [
+           %% XXX needs proper path
+           {"Github", "https://github.com/..."}
+          ]}
+ ]
+}.
