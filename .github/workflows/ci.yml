@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    name: Erlang ${{matrix.otp}} / rebar ${{matrix.rebar3}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        otp: ["27", "28"]
+        rebar3: ["3"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Test
+      run: make & make test
