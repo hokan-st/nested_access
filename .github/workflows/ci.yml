@@ -33,5 +33,13 @@ jobs:
             ci-${{runner.os}}-${{env.cache-name}}-otp_${{matrix.otp}}-rebar_${{matrix.rebar3}}
             ci-${{runner.os}}-${{env.cache-name}}-otp_${{matrix.otp}}
 
+      - name: Compile
+        run: make
+
+      - name: Check
+        run: make check
+
       - name: Test
-        run: make & make test
+        run: make test
+
+
