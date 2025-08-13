@@ -363,17 +363,29 @@ Note that the benchmarks generally represent a worst case scenario for the
 
 The benchmarks result below are from running on a
 *2019 MacBook Pro 16", 2.6GHz 6 Core Intel i7, with macOS Sonoma 14.7,
-using Erlang/OTP 27.1, where the benchmark `run/1` functions where used
+using Erlang/OTP 28.0.2 (with JIT), where the benchmark `run/1` functions where used
 with `Dups = 100` (default is 10)*:
 
-| test                  | `na:get()`              | `na:replace()`            |
-| :-------------------- | :---------------------- | :------------------------ |
-| Mixed nested types    | 2.4 times slower        | 1.9 times slower.         |
-| Mixed (only accessors in path) | 3.5 times slower | -                       |
-| Nested lists          | 2.4 to 8.8 times slower | 1.6 to 20.5 times slower  |
-| Nested records/tuples | 8.6 times slower        | 26.2 to 26.3 times slower |
-| Nested maps           | 2.5 to 3.9 times slower | 1.5 to 2.3 times slower   |
-| Nested proplists      | 1.3 times slower        | 1.6 times slower          |
+| test                           | `na:get()`               | `na:replace()`             |
+| :----------------------------- | :----------------------- | :------------------------- |
+| Mixed nested types             | 2.3 times slower         | 1.2 times slower.          |
+| Mixed (only accessors in path) | 2.8 times slower         | -                          |
+| Nested lists                   | 2.4 to 13.6 times slower | 1.1 to 20.6 times slower   |
+| Nested records/tuples          | 8.2 to 10.3 times slower | 27.8 to 36.0 times slower  |
+| Nested maps                    | 3.1 to 3.2 times slower  | x4.2 faster to x3.2 slower |
+| Nested proplists               | 1.02 times slower        | 1.02 times slower          |
+
+
+Using Erlang/OTP 28.0, compiled **without** JIT support, yields somewhat different numbers:
+
+| test                           | `na:get()`              | `na:replace()`            |
+| :----------------------------- | :---------------------- | :------------------------ |
+| Mixed nested types             | 2.6 times slower        | 1.8 times slower.         |
+| Mixed (only accessors in path) | 3.6 times slower        | -                         |
+| Nested lists                   | 2.2 to 8.7 times slower | 1.3 to 17.1 times slower  |
+| Nested records/tuples          | 8.2 times slower        | 24.7 to 24.8 times slower |
+| Nested maps                    | 2.3 to 3.6 times slower | 2.2 to 3.5 times slower   |
+| Nested proplists               | 1.4 times slower        | 1.6 times slower          |
 
 
 While the specific benchmark results should be taken with a grain of salt,
