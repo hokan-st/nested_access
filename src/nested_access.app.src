@@ -11,7 +11,7 @@ This library contains Erlang functions to access and update deeply nested data s
   %%       the same would apply when (rebar3) releases are used
   %%
   %% {vsn, git}, XXX how does this work ???
-  {vsn, "0.1.0"},
+  {vsn, "0.1.1"},
 
   %% All names of registered processes in the application.
   %% systools uses this list to detect name clashes between applications. Defaults to [].

@@ -41,6 +41,9 @@ bcompile:
 	rebar3 as benchmark compile
 
 # Start an interactive Erlang shell to manually run benchmark modules.
+# These are currently:
+#   na_benchmark_get:run().
+#   na_benchmark_replace:run().
 .PHONY: bshell
 bshell:
 	rebar3 as benchmark shell
